@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About This Project | Clean Rouse Hill</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.9) 0%, rgba(27, 67, 50, 0.95) 100%);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        .page-header h1 { color: white; margin-bottom: 20px; }
+        .page-header p { color: var(--accent); max-width: 700px; margin: 0 auto; }
+        .about-content {
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header fade-in">
+        <div class="container">
+            <h1>About This Project</h1>
+            <p>Bringing education, media, and community together to solve local issues in Rouse Hill.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="about-content fade-in">
+                    <h2 style="margin-bottom: 1.5rem;"><i class="fas fa-info-circle" style="color: var(--primary);"></i> Project Context</h2>
+                    <p>This website was created as part of a school project focused on interactive media, user experience, and community issues. The aim is to raise awareness about littering in Rouse Hill and present data driven insights and solutions that encourage positive change.</p>
+                    <p>The project combines research, community feedback, and interactive elements to communicate the impact of littering and highlight ways the community can work together to reduce it.</p>
+                    
+                    <div style="margin-top: 2.5rem;">
+                        <h3 style="margin-bottom: 1rem;">Share this Initiative</h3>
+                        <div class="social-links">
+                            <a href="#" style="background: #3b5998; color: white;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" style="background: #1da1f2; color: white;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="background: #0e76a8; color: white;"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" style="background: #25d366; color: white;"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <!-- Contact Form -->
+                    <div class="glass-card" id="contact" style="background: #f8fcf8;">
+                        <h2 style="margin-bottom: 1.5rem; text-align: center;">Get in Touch</h2>
+                        <div class="placeholder-media" style="height: 400px; background: #fff; border: 2px dashed var(--primary-light);">
+                            <div>
+                                <i class="fas fa-envelope-open-text fa-3x" style="color: var(--primary); margin-bottom: 15px; display: block;"></i>
+                                Contact Form Placeholder<br>
+                                <span style="font-size: 0.9rem;">(For project inquiries and community outreach)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
