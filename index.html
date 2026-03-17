@@ -4,72 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reducing Littering in Rouse Hill - Learn about the impact of littering and how you can help keep our community clean.">
-    <title>Home | Reducing Littering in Rouse Hill</title>
-    
-    <!-- Google Fonts -->
+    <title>Home | Clean Rouse Hill</title>
+
+    <!-- Google Fonts: DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <!-- Hero Section -->
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- ===== HERO SECTION ===== -->
     <header class="hero">
         <div class="container">
-            <div class="grid-2">
+            <div class="grid-2" style="gap: 3rem;">
+                <!-- Left: Text Content -->
                 <div class="hero-content fade-in">
+                    <span class="hero-badge">
+                        <i class="fas fa-leaf"></i> Rouse Hill Community Initiative
+                    </span>
                     <h1>Reducing Littering in Rouse Hill</h1>
-                    <p class="fade-in">Littering has become a growing issue in Rouse Hill, affecting public spaces, wildlife, and the overall appearance of our community. This website uses real data, community feedback, and interactive media to explain the impact of littering and present practical solutions that residents can take part in.</p>
-                    <p class="fade-in">By exploring this site, you will learn about the causes of littering in Rouse Hill, how it affects our environment, and what actions can be taken to reduce it. The goal is to raise awareness and encourage positive behaviour that keeps our community clean and safe.</p>
-                    
-                    <div class="fade-in" style="margin-top: 2rem;">
-                        <a href="issue.html" class="btn btn-primary">Explore the Issue <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+                    <p>Littering has become a growing issue in Rouse Hill — affecting our parks, wildlife, and community spaces. This website uses real data, community voices, and interactive media to explore the impact and drive change.</p>
+                    <p>Join us in making Rouse Hill a cleaner, greener place for everyone.</p>
+
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                        <a href="issue.html" class="btn btn-primary">Explore the Issue <i class="fas fa-arrow-right"></i></a>
+                        <a href="help.html#pledge" class="btn btn-outline">Take the Pledge <i class="fas fa-check"></i></a>
+                    </div>
+
+                    <!-- Stat chips -->
+                    <div class="stat-chips">
+                        <span class="stat-chip"><span>🌿</span> Community-led initiative</span>
+                        <span class="stat-chip"><span>📍</span> Rouse Hill, NSW</span>
+                        <span class="stat-chip"><span>♻️</span> Real data & insights</span>
                     </div>
                 </div>
-                
-                <div class="hero-media fade-in">
-                    <!-- Video Placeholder -->
-                    <div class="placeholder-media glass-card">
-                        <div>
-                            <i class="fas fa-video fa-3x" style="display: block; text-align: center; margin-bottom: 15px; color: var(--primary);"></i>
-                            Short Video Placeholder<br>
-                            <span style="font-size: 0.9rem; font-family: var(--font-main); font-weight: 400;">(Introduction to the Rouse Hill littering issue)</span>
-                        </div>
+
+                <!-- Right: Hero Illustration + Video -->
+                <div class="hero-media fade-in" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Hero illustration -->
+                    <img
+                        src="images/hero_illustration.png"
+                        alt="Vibrant illustration of a clean Rouse Hill park with community members enjoying public spaces"
+                        class="hero-illustration"
+                    >
+                    <!-- YouTube Embed -->
+                    <div style="width: 100%; height: 220px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(45,106,79,0.15);">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/2W1iC3YIpao"
+                            title="Introduction to the Rouse Hill littering issue"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Project Goals snippet section -->
-    <section class="section" style="background: rgba(45, 106, 79, 0.03);">
-        <div class="container fade-in">
-            <h2 style="text-align: center;">Our Mission</h2>
-            <div class="grid-3" style="margin-top: 3rem;">
-                <div class="glass-card" style="text-align: center;">
-                    <i class="fas fa-search fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+    <!-- Wave Divider -->
+    <div class="wave-divider" style="background: var(--background);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="height: 60px;">
+            <path fill="#d8f3dc" d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z"/>
+        </svg>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="section" style="background: var(--background);">
+        <div class="container">
+            <div class="fade-in text-center" style="margin-bottom: 3rem;">
+                <h2>Our Mission</h2>
+                <p style="max-width: 600px; margin: 0 auto;">Three pillars guide everything we do — from research to real-world action.</p>
+            </div>
+            <div class="grid-3">
+                <div class="glass-card mission-card fade-in" style="text-align: center;">
+                    <div class="mission-icon"><i class="fas fa-search"></i></div>
                     <h3>Identify</h3>
-                    <p>Collect data from residents and public datasets to understand the true impact of litter in our public spaces.</p>
+                    <p>Collect real data from surveys, public datasets, and resident reports to understand where and how littering happens most.</p>
                 </div>
-                <div class="glass-card" style="text-align: center;">
-                    <i class="fas fa-bullhorn fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <div class="glass-card mission-card fade-in" style="text-align: center;">
+                    <div class="mission-icon"><i class="fas fa-bullhorn"></i></div>
                     <h3>Educate</h3>
-                    <p>Raise awareness about the long-term environmental and social effects of improper waste disposal.</p>
+                    <p>Raise awareness about the long-term environmental and social effects of improper waste disposal through media and storytelling.</p>
                 </div>
-                <div class="glass-card" style="text-align: center;">
-                    <i class="fas fa-hands-helping fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <div class="glass-card mission-card fade-in" style="text-align: center;">
+                    <div class="mission-icon"><i class="fas fa-hands-helping"></i></div>
                     <h3>Resolve</h3>
-                    <p>Implement community-driven solutions such as clean-up events, more bins, and better reporting tools.</p>
+                    <p>Implement community-driven solutions — clean-up events, more bins, better signage, and smarter reporting tools.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
     <!-- Custom Scripts -->
     <script src="js/main.js"></script>
