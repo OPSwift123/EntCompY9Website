@@ -252,7 +252,12 @@ function initTiltCards() {
     if (window.matchMedia('(max-width: 768px)').matches) return;
 
     cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transitionDelay = '0s';
+        });
+
         card.addEventListener('mousemove', (e) => {
+            card.style.transitionDelay = '0s';
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -266,6 +271,7 @@ function initTiltCards() {
         });
 
         card.addEventListener('mouseleave', () => {
+            card.style.transitionDelay = '0s';
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
         });
     });
