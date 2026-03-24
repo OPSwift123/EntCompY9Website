@@ -10,7 +10,7 @@ import Development from './pages/Development'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/EntCompY9Website">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
