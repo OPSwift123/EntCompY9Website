@@ -1,6 +1,5 @@
 import FadeIn from '../components/FadeIn'
 
-
 export default function Data() {
   return (
     <>
