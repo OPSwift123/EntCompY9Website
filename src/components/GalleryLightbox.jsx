@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
 const galleryImages = [
+  { src: 'https://gptgroupretailer.imgix.net/getContentAsset/48611eda-3281-49f7-b398-b5100a6d7c3e/93479c80-15d9-49ec-a442-167558b21428/DSC05900-HDR.jpg?auto=format&w=1200', caption: 'Rouse Hill Town Centre and public space' },
   { src: '/images/hero_aerial.png', caption: 'Aerial view of Rouse Hill parklands' },
   { src: '/images/litter_in_park.png', caption: 'Litter scattered across a park' },
   { src: '/images/community_volunteers.png', caption: 'Community volunteers doing a cleanup' },
   { src: '/images/before_after_cleanup.png', caption: 'Before and after cleanup comparison' },
-  { src: '/images/litter_impact.png', caption: 'Impact of litter on local wildlife and environment' },
   { src: '/images/community_cleanup.png', caption: 'Students leading a local park cleanup' },
 ]
 
