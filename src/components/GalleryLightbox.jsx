@@ -5,8 +5,8 @@ const galleryImages = [
   { src: '/images/litter_in_park.png', caption: 'Litter scattered across a park' },
   { src: '/images/community_volunteers.png', caption: 'Community volunteers doing a cleanup' },
   { src: '/images/before_after_cleanup.png', caption: 'Before and after cleanup comparison' },
-  { src: 'https://images.pexels.com/photos/8000494/pexels-photo-8000494.jpeg', caption: 'Students leading a local park cleanup' },
-  { src: 'https://images.pexels.com/photos/1726725/pexels-photo-1726725.jpeg', caption: 'Town centre fountain and public space' },
+  { src: '/images/litter_impact.png', caption: 'Impact of litter on local wildlife and environment' },
+  { src: '/images/community_cleanup.png', caption: 'Students leading a local park cleanup' },
 ]
 
 export default function GalleryLightbox() {
