@@ -1517,10 +1517,7 @@ textarea.form-control {
 /* ==============================
    RESPONSIVE
    ============================== */
-@media (max-width: 1024px) {
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 1.9rem; }
-
+@media (max-width: 1200px) {
   .nav-links {
     position: absolute;
     top: 100%;
@@ -1538,7 +1535,6 @@ textarea.form-control {
   }
 
   .nav-links.active { max-height: 450px; }
-
   .nav-links li { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
 
   .nav-links a {
@@ -1549,9 +1545,17 @@ textarea.form-control {
 
   .mobile-toggle { display: flex; }
 
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.9rem; }
+
+
+
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
 
   .hero { min-height: auto; padding: 120px 0 100px; }
   .hero-container { grid-template-columns: 1fr; }
