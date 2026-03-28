@@ -58,15 +58,23 @@
 
                 <div class="fade-in">
                     <!-- Contact Form -->
-                    <div class="glass-card" id="contact" style="background: #f8fcf8;">
-                        <h2 style="margin-bottom: 1.5rem; text-align: center;">Get in Touch</h2>
-                        <div class="placeholder-media" style="height: 400px; background: #fff; border: 2px dashed var(--primary-light);">
-                            <div>
-                                <i class="fas fa-envelope-open-text fa-3x" style="color: var(--primary); margin-bottom: 15px; display: block;"></i>
-                                Contact Form Placeholder<br>
-                                <span style="font-size: 0.9rem;">(For project inquiries and community outreach)</span>
+                    <div class="glass-card" id="contact" style="background: white; padding: 2.5rem; border: 1px solid rgba(45, 106, 79, 0.1);">
+                        <h2 style="margin-bottom: 1.5rem; text-align: center; color: var(--secondary);">Get in Touch</h2>
+                        <form id="projectContactForm" onsubmit="event.preventDefault(); alert('Message sent! (Demo Only)');">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Your name" required>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="How can we help?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
