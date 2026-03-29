@@ -57,24 +57,21 @@
                 </div>
 
                 <div class="fade-in">
-                    <!-- Contact Form -->
-                    <div class="glass-card" id="contact" style="background: white; padding: 2.5rem; border: 1px solid rgba(45, 106, 79, 0.1);">
-                        <h2 style="margin-bottom: 1.5rem; text-align: center; color: var(--secondary);">Get in Touch</h2>
-                        <form id="projectContactForm" onsubmit="event.preventDefault(); alert('Message sent! (Demo Only)');">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" class="form-control" placeholder="Your name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" class="form-control" placeholder="How can we help?" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
-                        </form>
+                    <!-- Contact Form — powered by JotForm -->
+                    <!-- ✏️ STEP: Replace YOUR_FORM_ID below with your actual JotForm form ID -->
+                    <div class="glass-card" id="contact" style="background: white; padding: 2rem 2rem 0.5rem; border: 1px solid rgba(45, 106, 79, 0.1); overflow: hidden;">
+                        <h2 style="margin-bottom: 1rem; text-align: center; color: var(--secondary);">Get in Touch</h2>
+                        <iframe
+                            id="contactJotForm"
+                            class="jotform-embed"
+                            title="Clean Rouse Hill Contact Form"
+                            src="https://form.jotform.com/260871636009055"
+                            style="width: 100%; min-height: 480px; border: none; border-radius: 8px; display: block;"
+                            allowfullscreen
+                            allow="geolocation; microphone; camera"
+                            scrolling="no"
+                            frameborder="0"
+                        ></iframe>
                     </div>
                 </div>
             </div>
