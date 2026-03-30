@@ -219,7 +219,7 @@ a:hover { color: var(--primary-vivid); }
 }
 
 .glass-card:hover {
-  transform: translateY(-8px);
+  transform: scale(1.02);
   box-shadow: var(--shadow-lg), var(--shadow-glow);
   border-color: rgba(82, 183, 136, 0.35);
 }
