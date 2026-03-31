@@ -6,10 +6,10 @@
     <meta name="description" content="Reducing Littering in Rouse Hill - Learn about the impact of littering and how you can help keep our community clean.">
     <title>Home | Clean Rouse Hill</title>
 
-    <!-- Google Fonts: DM Sans + Inter -->
+    <!-- Google Fonts: Rubik + Karla -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,11 +18,7 @@
 </head>
 <body>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- Removed unnecessary scroll progress and cursor glow -->
 
     <!-- Navbar -->
     <div id="navbar-placeholder"></div>
@@ -34,15 +30,14 @@
         </div>
         <div class="hero-overlay"></div>
 
-        <!-- Animated particles -->
-        <div class="hero-particles" id="heroParticles"></div>
+        <!-- Removed fake hero particles overlay -->
 
         <div class="container hero-container">
             <div class="hero-glass-panel fade-in" id="heroPanel">
                 <span class="hero-badge">
                     <i class="fas fa-leaf"></i> Rouse Hill Community Initiative
                 </span>
-                <h1>Reducing Littering<br>in <span class="gradient-text">Rouse Hill</span></h1>
+                <h1>Reducing Littering<br>in <span style="color: var(--primary)">Rouse Hill</span></h1>
                 <p>Littering has become a growing issue in Rouse Hill, affecting our parks, wildlife, and community spaces. This website uses real data, community voices, and interactive media to explore the impact and drive change.</p>
 
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
@@ -52,9 +47,9 @@
 
                 <!-- Stat chips -->
                 <div class="stat-chips">
-                    <span class="stat-chip glass-chip"><span>🌿</span> Community-led initiative</span>
-                    <span class="stat-chip glass-chip"><span>📍</span> Rouse Hill, NSW</span>
-                    <span class="stat-chip glass-chip"><span>♻️</span> Real data & insights</span>
+                    <span class="stat-chip"><span>🌿</span> Community-led</span>
+                    <span class="stat-chip"><span>📍</span> Rouse Hill, NSW</span>
+                    <span class="stat-chip"><span>♻️</span> Real insights</span>
                 </div>
             </div>
 
@@ -90,12 +85,38 @@
         </svg>
     </div>
 
+    <!-- ===== LIVE WEATHER SECTION ===== -->
+    <section class="section" style="background: var(--surface-tint); padding: 2.5rem 0;">
+        <div class="container">
+            <div class="fade-in" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+                <div>
+                    <span class="section-badge" style="margin-bottom: 0.5rem;"><i class="fas fa-cloud-sun"></i> Live Conditions</span>
+                    <h2 style="margin-bottom: 0.25rem; font-size: 1.4rem;">Current Weather in Rouse Hill</h2>
+                    <p style="color: var(--text-mid); margin: 0; font-size: 0.9rem;">Windy &amp; rainy conditions increase litter entering local waterways.</p>
+                </div>
+                <div id="weather-widget" style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
+                    <div class="glass-card" style="padding: 1.2rem 2rem; display: flex; align-items: center; gap: 1.2rem; min-width: 260px;">
+                        <img id="weather-icon" src="" alt="Weather icon" style="width: 56px; height: 56px; display: none;">
+                        <div>
+                            <div id="weather-temp" style="font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1;">—°C</div>
+                            <div id="weather-desc" style="font-size: 0.9rem; color: var(--text-mid); text-transform: capitalize; margin-top: 0.2rem;">Loading…</div>
+                        </div>
+                        <div style="border-left: 1px solid var(--border); padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <span id="weather-wind" style="font-size: 0.85rem; color: var(--text-mid);"><i class="fas fa-wind"></i> —</span>
+                            <span id="weather-humidity" style="font-size: 0.85rem; color: var(--text-mid);"><i class="fas fa-tint"></i> —</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== IMPACT STATS SECTION ===== -->
     <section class="section stats-section" id="statsSection">
         <div class="container">
             <div class="fade-in text-center" style="margin-bottom: 3rem;">
                 <span class="section-badge"><i class="fas fa-chart-bar"></i> The Numbers</span>
-                <h2>The Impact of <span class="gradient-text">Littering</span></h2>
+                <h2>The Impact of Littering</h2>
                 <p style="max-width: 600px; margin: 0 auto;">The data paints a stark picture: littering affects ecosystems, costs communities millions, and threatens wildlife.</p>
             </div>
             <div class="grid-4 stats-grid">
@@ -126,26 +147,31 @@
     <!-- ===== MISSION SECTION ===== -->
     <section class="section" style="background: var(--background);">
         <div class="container">
-            <div class="fade-in text-center" style="margin-bottom: 3rem;">
-                <span class="section-badge"><i class="fas fa-bullseye"></i> Our Approach</span>
-                <h2>Our Mission</h2>
-                <p style="max-width: 600px; margin: 0 auto;">Three pillars guide everything we do, from research to real-world action.</p>
+            <div class="fade-in" style="margin-bottom: 2.5rem;">
+                <h2>What We're Doing About It</h2>
+                <p style="max-width: 620px; color: var(--text-mid);">Three focused steps guide this project — from understanding the problem on the ground to pushing for tangible action in the community.</p>
             </div>
-            <div class="grid-3">
-                <div class="glass-card mission-card tilt-card fade-in" style="text-align: center;">
-                    <div class="mission-icon pulse-icon"><i class="fas fa-search"></i></div>
-                    <h3>Identify</h3>
-                    <p>Collect real data from surveys, public datasets, and resident reports to understand where and how littering happens most.</p>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="fade-in" style="display: flex; gap: 2rem; align-items: flex-start;">
+                    <div style="min-width: 52px; height: 52px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; flex-shrink: 0;">01</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.4rem;">Identify where littering happens</h3>
+                        <p style="margin: 0;">We collected data from surveys, public datasets, and walked Rouse Hill's parks and streets to map where waste was most concentrated — from the Town Centre car parks to the creek corridors near Rouse Hill Regional Park.</p>
+                    </div>
                 </div>
-                <div class="glass-card mission-card tilt-card fade-in" style="text-align: center;">
-                    <div class="mission-icon pulse-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3>Educate</h3>
-                    <p>Raise awareness about the long-term environmental and social effects of improper waste disposal through media and storytelling.</p>
+                <div class="fade-in" style="display: flex; gap: 2rem; align-items: flex-start;">
+                    <div style="min-width: 52px; height: 52px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; flex-shrink: 0;">02</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.4rem;">Communicate the real impact</h3>
+                        <p style="margin: 0;">Most residents underestimate how serious littering is. We used real statistics and visuals to tell the story clearly — broken down into numbers people can connect with, not abstract environmental language.</p>
+                    </div>
                 </div>
-                <div class="glass-card mission-card tilt-card fade-in" style="text-align: center;">
-                    <div class="mission-icon pulse-icon"><i class="fas fa-hands-helping"></i></div>
-                    <h3>Resolve</h3>
-                    <p>Implement community-driven solutions: clean-up events, more bins, better signage, and smarter reporting tools.</p>
+                <div class="fade-in" style="display: flex; gap: 2rem; align-items: flex-start;">
+                    <div style="min-width: 52px; height: 52px; background: var(--primary); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; flex-shrink: 0;">03</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.4rem;">Give people a way to act</h3>
+                        <p style="margin: 0;">Awareness without action doesn't go anywhere. This site links directly to clean-up events, council reporting tools, and a pledge form — so people can do something concrete the moment they feel motivated to help.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,8 +207,7 @@
     <section class="section">
         <div class="container">
             <div class="fade-in text-center" style="margin-bottom: 3rem;">
-                <span class="section-badge"><i class="fas fa-lightbulb"></i> Quick Facts</span>
-                <h2>Did You <span class="gradient-text">Know?</span></h2>
+                <h2>Did You Know?</h2>
             </div>
             <div class="grid-3 facts-grid">
                 <div class="flip-card fade-in">

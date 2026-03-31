@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initComparisonSlider();
     initGalleryLightbox();
     initHeroParticles();
+    initCopyrightYear();
+    initWeatherWidget();
 });
 
 /* ============================================
@@ -421,4 +423,66 @@ function initHeroParticles() {
 
         container.appendChild(particle);
     }
+}
+
+/* ============================================
+   WORLDTIMEAPI — COPYRIGHT YEAR
+   Fetches the current date/time from the
+   WorldTimeAPI (worldtimeapi.org) for Sydney,
+   Australia, then injects the real year into
+   the footer copyright notice.
+   ============================================ */
+function initCopyrightYear() {
+    fetch('https://worldtimeapi.org/api/timezone/Australia/Sydney')
+        .then(response => response.json())
+        .then(data => {
+            // data.datetime looks like "2026-03-31T08:05:21.123+11:00"
+            const year = new Date(data.datetime).getFullYear();
+            const yearEl = document.getElementById('copyright-year');
+            if (yearEl) {
+                yearEl.textContent = year;
+            }
+        })
+        .catch(() => {
+            // If the API is unreachable, silently fall back to the
+            // hardcoded year already in the HTML — no broken UI.
+        });
+}
+
+/* ============================================
+   WEATHER API INTEGRATION
+   Fetches current weather from our Vercel
+   Serverless Function (/api/weather)
+   ============================================ */
+function initWeatherWidget() {
+    const tempEl = document.getElementById('weather-temp');
+    const descEl = document.getElementById('weather-desc');
+    const iconEl = document.getElementById('weather-icon');
+    const windEl = document.getElementById('weather-wind');
+    const humEl = document.getElementById('weather-humidity');
+
+    if (!tempEl) return; // If not on a page with the widget
+
+    // Call our own backend safely
+    fetch('/api/weather')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Weather API error');
+            }
+            return response.json();
+        })
+        .then(data => {
+            tempEl.textContent = `${data.temp}°C`;
+            descEl.textContent = data.description;
+            // OpenWeather provides an icon code
+            iconEl.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
+            iconEl.style.display = 'block';
+            windEl.innerHTML = `<i class="fas fa-wind"></i> ${data.wind_speed} m/s`;
+            humEl.innerHTML = `<i class="fas fa-tint"></i> ${data.humidity}%`;
+        })
+        .catch(err => {
+            console.error('Failed to load weather widget:', err);
+            tempEl.textContent = '—°C';
+            descEl.textContent = 'Weather Unavailable';
+        });
 }
