@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroParticles();
     initCopyrightYear();
     initWeatherWidget();
+    initSubmissionsTracker();
 });
 
 /* ============================================
@@ -485,4 +486,93 @@ function initWeatherWidget() {
             tempEl.textContent = '—°C';
             descEl.textContent = 'Weather Unavailable';
         });
+}
+
+/* ============================================
+   FORM SUBMISSIONS TRACKER
+   Fetches /api/submissions and renders live
+   count cards for each JotForm form.
+   ============================================ */
+const FORM_ICONS = {
+    '260737827140862': 'fa-hand-sparkles',   // Pledge
+    '260737955450868': 'fa-comments',        // Feedback
+    '260871636009055': 'fa-envelope',        // Contact
+};
+
+function initSubmissionsTracker() {
+    const container = document.getElementById('submission-cards');
+    if (!container) return;
+
+    function renderCards(forms) {
+        container.innerHTML = forms.map(form => {
+            const icon = FORM_ICONS[form.id] || 'fa-file-alt';
+            const hasCount = form.count !== null && form.count !== undefined;
+            return `
+                <div class="sub-card">
+                    <div class="sub-card-label">
+                        <i class="fas ${icon}"></i>
+                        ${form.label}
+                    </div>
+                    <div class="sub-card-count${hasCount ? '' : ' error'}">
+                        ${hasCount ? form.count : '—'}
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Show the refresh note
+        const note = document.getElementById('submissions-note');
+        if (note) note.style.display = 'block';
+
+        // Trigger animated count-up for each card
+        container.querySelectorAll('.sub-card-count:not(.error)').forEach(el => {
+            const target = parseInt(el.textContent, 10);
+            if (isNaN(target)) return;
+            const duration = 1200;
+            const startTime = performance.now();
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+            function tick(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                el.textContent = Math.floor(easeOut(progress) * target);
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+        });
+    }
+
+    function fetchSubmissions() {
+        fetch('/api/submissions')
+            .then(r => {
+                if (!r.ok) throw new Error('Non-OK response');
+                return r.json();
+            })
+            .then(data => {
+                if (data && data.forms) renderCards(data.forms);
+            })
+            .catch(err => {
+                console.error('Submissions tracker error:', err);
+                // Show fallback cards so the UI is not broken
+                container.innerHTML = `
+                    <div class="sub-card">
+                        <div class="sub-card-label"><i class="fas fa-hand-sparkles"></i> Pledge Form</div>
+                        <div class="sub-card-count error">Unavailable</div>
+                    </div>
+                    <div class="sub-card">
+                        <div class="sub-card-label"><i class="fas fa-comments"></i> Feedback Form</div>
+                        <div class="sub-card-count error">Unavailable</div>
+                    </div>
+                    <div class="sub-card">
+                        <div class="sub-card-label"><i class="fas fa-envelope"></i> Contact Form</div>
+                        <div class="sub-card-count error">Unavailable</div>
+                    </div>
+                `;
+            });
+    }
+
+    // Initial fetch
+    fetchSubmissions();
+
+    // Auto-refresh every 60 seconds
+    setInterval(fetchSubmissions, 60_000);
 }

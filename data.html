@@ -38,6 +38,29 @@
         </div>
     </header>
 
+    <!-- ===== FORM SUBMISSIONS TRACKER ===== -->
+    <section class="section" style="background: var(--surface-tint); padding: 2.5rem 0;">
+        <div class="container">
+            <div class="fade-in" style="margin-bottom: 1.5rem;">
+                <span class="section-badge"><i class="fas fa-paper-plane"></i> Live Data</span>
+                <h2 style="font-size: 1.6rem; margin-bottom: 0.25rem;">Form Submissions</h2>
+                <p style="margin: 0; font-size: 0.92rem; color: var(--text-mid);">Tracking how many people have engaged with each form on this site.</p>
+            </div>
+
+            <!-- Submission Count Cards -->
+            <div id="submission-cards" class="fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem;">
+                <!-- Cards injected by JS -->
+                <div class="sub-card-skeleton"></div>
+                <div class="sub-card-skeleton"></div>
+                <div class="sub-card-skeleton"></div>
+            </div>
+
+            <p id="submissions-note" style="font-size: 0.8rem; color: var(--text-mid); margin-top: 1rem; opacity: 0.6; display: none;">
+                <i class="fas fa-sync-alt" style="margin-right: 5px;"></i> Counts refresh automatically every 60 seconds.
+            </p>
+        </div>
+    </section>
+
     <section class="section" style="background: rgba(45, 106, 79, 0.02);">
         <div class="container">
 
@@ -109,14 +132,8 @@
             <!-- Canva Infographic Section -->
             <div class="data-section fade-in">
                 <h2>Visual Insights: Infographic</h2>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-                    <div class="placeholder-media" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;">
-                        <div style="text-align: center;">
-                            <i class="fas fa-file-invoice fa-4x" style="color: var(--primary); margin-bottom: 15px; display: block;"></i>
-                            <strong>Canva Infographic Placeholder</strong><br>
-                            <span style="font-size: 0.9rem; opacity: 0.8;">(Paste your Canva embed code here once designed)</span>
-                        </div>
-                    </div>
+                <div style="text-align: center; margin-top: 1.6em; margin-bottom: 0.9em;">
+                    <img src="images/canva_infographic.png" alt="Clean Rouse Hill Littering Infographic" style="width: 100%; max-width: 700px; height: auto; border-radius: 12px; box-shadow: 0 8px 32px rgba(45, 106, 79, 0.12); border: 1px solid rgba(0,0,0,0.05); display: block; margin: 0 auto;">
                 </div>
                 <p style="margin-top: 1rem;">The infographic above provides a visual summary of the key findings from our research, making it easier to understand the scale and nature of the littering problem in Rouse Hill at a glance.</p>
             </div>

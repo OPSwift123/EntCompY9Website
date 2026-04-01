@@ -1451,3 +1451,97 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==============================
+   FORM SUBMISSIONS TRACKER
+   ============================== */
+.sub-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(45, 106, 79, 0.08);
+  box-shadow: 0 2px 12px rgba(45, 106, 79, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-vivid), var(--primary));
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.sub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(45, 106, 79, 0.12);
+}
+
+.sub-card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sub-card-label i {
+  color: var(--primary-vivid);
+  font-size: 0.75rem;
+}
+
+.sub-card-count {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.sub-card-count.error {
+  font-size: 1rem;
+  color: var(--text-mid);
+  font-weight: 500;
+}
+
+/* Skeleton loading shimmer */
+.sub-card-skeleton {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  height: 100px;
+  border: 1px solid rgba(45, 106, 79, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-card-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(82, 183, 136, 0.08) 40%,
+    rgba(82, 183, 136, 0.14) 50%,
+    rgba(82, 183, 136, 0.08) 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
