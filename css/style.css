@@ -1376,44 +1376,61 @@ textarea.form-control {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.08); /* frosted glass blending with hero */
     backdrop-filter: blur(24px) saturate(1.8);
     -webkit-backdrop-filter: blur(24px) saturate(1.8);
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
     text-align: center;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 15px 40px rgba(31, 88, 55, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 24px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-top: none;
+    border: none;
+  }
+
+  .navbar.scrolled .nav-links {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 15px 40px rgba(31, 88, 55, 0.15);
   }
 
   .nav-links.active { max-height: 550px; }
 
-  .nav-links li { padding: 0 20px; border-bottom: none; }
-  .nav-links li:first-child { margin-top: 16px; }
-  .nav-links li:last-child { margin-bottom: 20px; }
+  .nav-links li { padding: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
+  .navbar.scrolled .nav-links li { border-bottom: 1px solid rgba(45, 106, 79, 0.08); }
+  
+  .nav-links li:first-child { margin-top: 8px; }
+  .nav-links li:last-child { margin-bottom: 16px; border-bottom: none; }
 
   .nav-links a {
     display: block;
+    color: rgba(255, 255, 255, 0.95) !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    padding: 16px 20px !important;
+    border-radius: 0 !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+    box-shadow: none !important;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .navbar.scrolled .nav-links a {
     color: var(--text-dark) !important;
-    background: rgba(255, 255, 255, 0.6) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    padding: 12px 20px !important;
-    border-radius: var(--radius-full) !important;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
   }
 
   .nav-links a:hover, .nav-links a.active {
-    background: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+    transform: none;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
+  .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active {
+    background: rgba(45, 106, 79, 0.06) !important;
     color: var(--primary) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(45, 106, 79, 0.12);
-    border-color: white !important;
   }
 
   .mobile-toggle { display: flex; }
