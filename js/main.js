@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initCopyrightYear();
     initWeatherWidget();
     initSubmissionsTracker();
+    initQuiz();
 });
 
 /* ============================================
@@ -575,4 +576,128 @@ function initSubmissionsTracker() {
 
     // Auto-refresh every 60 seconds
     setInterval(fetchSubmissions, 60_000);
+}
+
+/* ============================================
+   SOLUTIONS QUIZ
+   ============================================ */
+function initQuiz() {
+    const quizContainer = document.getElementById('quiz-container');
+    const submitBtn = document.getElementById('submit-quiz');
+    const restartBtn = document.getElementById('restart-quiz');
+    const resultDiv = document.getElementById('quiz-result');
+    
+    if (!quizContainer) return;
+
+    const questions = [
+        {
+            question: "What is the most common form of litter in urban areas?",
+            options: ["Plastic bottles", "Cigarette butts", "Food wrappers", "Paper"],
+            answer: 1
+        },
+        {
+            question: "How long does it take for a plastic bottle to decompose?",
+            options: ["10 years", "50 years", "450 years", "1000 years"],
+            answer: 2
+        },
+        {
+            question: "Which of the following is the most effective way to reduce littering overall?",
+            options: ["Ignoring it", "More public bins and education", "Waiting for rain to wash it away", "Burning waste in public"],
+            answer: 1
+        },
+        {
+            question: "Where does most uncollected litter eventually end up?",
+            options: ["In space", "Evaporates entirely", "In forests", "In the ocean"],
+            answer: 3
+        },
+        {
+            question: "What happens to microplastics generated from litter breakdown?",
+            options: ["They dissolve completely", "They turn into safe soil", "They enter the food chain", "They purify the water"],
+            answer: 2
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+
+    function renderQuiz() {
+        quizContainer.innerHTML = '';
+        userAnswers = new Array(questions.length).fill(null);
+        resultDiv.style.display = 'none';
+        submitBtn.style.display = 'inline-flex';
+        restartBtn.style.display = 'none';
+
+        questions.forEach((q, qIndex) => {
+            const block = document.createElement('div');
+            block.className = 'quiz-question-block';
+            
+            const qText = document.createElement('div');
+            qText.className = 'quiz-question-text';
+            qText.textContent = `${qIndex + 1}. ${q.question}`;
+            block.appendChild(qText);
+
+            const optionsContainer = document.createElement('div');
+            optionsContainer.className = 'quiz-options';
+
+            q.options.forEach((optText, oIndex) => {
+                const label = document.createElement('label');
+                label.className = 'quiz-option';
+                label.innerHTML = `
+                    <input type="radio" name="question${qIndex}" value="${oIndex}">
+                    <span>${optText}</span>
+                `;
+                
+                label.querySelector('input').addEventListener('change', (e) => {
+                    userAnswers[qIndex] = parseInt(e.target.value);
+                });
+
+                optionsContainer.appendChild(label);
+            });
+
+            block.appendChild(optionsContainer);
+            quizContainer.appendChild(block);
+        });
+    }
+
+    submitBtn.addEventListener('click', () => {
+        if (userAnswers.includes(null)) {
+            alert('Please answer all questions before submitting.');
+            return;
+        }
+
+        let score = 0;
+        const blocks = quizContainer.querySelectorAll('.quiz-question-block');
+        
+        userAnswers.forEach((ans, qIndex) => {
+            const isCorrect = (ans === questions[qIndex].answer);
+            if (isCorrect) score++;
+
+            const options = blocks[qIndex].querySelectorAll('.quiz-option');
+            // Disable all inputs
+            options.forEach((opt, oIndex) => {
+                opt.querySelector('input').disabled = true;
+                if (oIndex === questions[qIndex].answer) {
+                    opt.classList.add('correct');
+                } else if (oIndex === ans && !isCorrect) {
+                    opt.classList.add('incorrect');
+                }
+            });
+        });
+
+        resultDiv.style.display = 'block';
+        if (score === questions.length) {
+            resultDiv.innerHTML = `<span style="color: var(--primary-vivid);">Perfect Score! ${score}/${questions.length}</span> 🎉 Thank you for your environmental awareness!`;
+        } else if (score >= questions.length / 2) {
+            resultDiv.innerHTML = `<span style="color: var(--primary);">Good Job! ${score}/${questions.length}</span> 👍 Let's keep learning to protect our environment.`;
+        } else {
+            resultDiv.innerHTML = `<span style="color: #dc3545;">You scored ${score}/${questions.length}</span>. Every bit of knowledge helps us build a cleaner community!`;
+        }
+
+        submitBtn.style.display = 'none';
+        restartBtn.style.display = 'inline-flex';
+    });
+
+    restartBtn.addEventListener('click', renderQuiz);
+
+    // Initial render
+    renderQuiz();
 }
